@@ -140,6 +140,11 @@ img {
 .notification > div {
   color: var(--color-neutral-600);
 }
+.notification .picture__wrapper {
+  flex-shrink: 0;
+  width: 44px;
+  margin-left: auto;
+}
 
 .notification:not(.notification.read) p {
   position: relative;

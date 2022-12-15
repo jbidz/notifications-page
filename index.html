@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <title>Notifications page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        padding: 3rem 0;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="wrapper">
+          <div class="header">
+            <h1 data-count="3">Notifications</h1>
+            <button id="marked-all">Mark all as read</button>
+          </div>
+
+          <div class="notification">
+            <div>
+              <img
+                src="assets/images/avatar-mark-webber.webp"
+                alt="mark webber"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Mark Webber</a
+                >
+                reacted to your recent post
+                <a href="#" class="notification__link"
+                  >My first tournament today!</a
+                >
+              </p>
+              <div>1m ago</div>
+            </div>
+          </div>
+
+          <div class="notification">
+            <div>
+              <img
+                src="assets/images/avatar-angela-gray.webp"
+                alt="angela gray"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Angela Gray</a
+                >
+                followed you
+              </p>
+              <div>5m ago</div>
+            </div>
+          </div>
+
+          <div class="notification">
+            <div>
+              <img
+                src="assets/images/avatar-jacob-thompson.webp"
+                alt="jacob thompson"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Jacob Thompson</a
+                >
+                has joined your group
+                <a href="#" class="notification__link">Chess Club</a>
+              </p>
+              <div>1 day ago</div>
+            </div>
+          </div>
+
+          <div class="notification read">
+            <div>
+              <img
+                src="assets/images/avatar-rizky-hasanuddin.webp"
+                alt="rizky hasanuddin"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Rizky Hasanuddin</a
+                >
+                sent you a private message
+              </p>
+              <div>5 days ago</div>
+              <a href="#" class="notification__message">
+                Hello, thanks for setting up the Chess Club. I've been a member
+                for a few weeks now and I'm already having lots of fun and
+                improving my game.
+              </a>
+            </div>
+          </div>
+
+          <div class="notification read">
+            <div>
+              <img
+                src="assets/images/avatar-kimberly-smith.webp"
+                alt="kimberly smith"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Kimberly Smith</a
+                >
+                commented on your picture
+              </p>
+              <div>1 week ago</div>
+            </div>
+          </div>
+
+          <div class="notification read">
+            <div>
+              <img
+                src="assets/images/avatar-nathan-peterson.webp"
+                alt="nathan peterson"
+              />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Nathan Peterson</a
+                >
+                reacted to your recent post
+                <a href="#" class="notification__link"
+                  >5 end-game strategies to increase your win rate</a
+                >
+              </p>
+              <div>2 weeks ago</div>
+            </div>
+          </div>
+
+          <div class="notification read">
+            <div>
+              <img src="assets/images/avatar-anna-kim.webp" alt="ana kim" />
+            </div>
+            <div>
+              <p>
+                <a href="#" class="notification__link notification__link-name"
+                  >Anna Kim</a
+                >
+                left the group
+                <a href="#" class="notification__link">Chess Club</a>
+              </p>
+              <div>2 weeks ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">John Denver Bidong</a>.
+        </div>
+      </div>
+    </main>
+    <script>
+      const button = document.getElementById("marked-all");
+      const notifNumber = document.querySelector("[data-count]");
+
+      button.addEventListener("click", function (e) {
+        const unreadNotif = document.querySelectorAll(
+          `.notification:not(.notification.read)`
+        );
+        if ([...unreadNotif].length === 0) return;
+
+        notifNumber.dataset.count = 0;
+
+        unreadNotif.forEach((notif) => {
+          notif.classList.add("read");
+        });
+      });
+    </script>
+  </body>
+</html>

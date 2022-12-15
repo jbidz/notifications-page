@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
+
+:root {
+  --color-primary-1: hsl(1, 90%, 64%);
+  --color-primary-2: hsl(219, 85%, 26%);
+  --color-neutral-900: hsl(224, 21%, 14%);
+  --color-neutral-800: hsl(219, 12%, 42%);
+  --color-neutral-600: hsl(219, 14%, 63%);
+  --color-neutral-400: hsl(205, 33%, 90%);
+  --color-neutral-200: hsl(211, 68%, 94%);
+  --color-neutral-100: hsl(210, 60%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+  --font-medium: 500;
+  --font-bold: 800;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 300ms ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--color-neutral-100);
+}
+
+h1 {
+  font-weight: var(--font-bold);
+  font-size: 1.3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: inline-block;
+}
+
+.container {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 3rem 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    position: relative;
+    color: var(--color-neutral-900);
+
+    &::after {
+      content: attr(data-count);
+      position: absolute;
+      font-size: 0.7em;
+      top: 0.3em;
+      right: -2em;
+      padding: 0.25em 0.5em;
+      border-radius: 0.25em;
+      line-height: 1;
+      background-color: var(--color-primary-2);
+      color: var(--color-white);
+    }
+  }
+
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    color: var(--color-neutral-800);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-primary-2);
+    }
+  }
+}
+
+.wrapper {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  padding-bottom: 0;
+  border-radius: 1rem;
+}
+
+.notification {
+  display: flex;
+  background-color: var(--color-neutral-100);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  & > div:first-child {
+    flex-shrink: 0;
+    width: 44px;
+    margin-right: 1rem;
+  }
+
+  p {
+    color: var(--color-neutral-800);
+    line-height: 1.5;
+  }
+
+  &__link {
+    font-weight: var(--font-bold);
+    color: var(--color-neutral-800);
+    margin-left: 0.2em;
+
+    &:hover {
+      color: var(--color-primary-2);
+    }
+
+    &-name {
+      color: var(--color-neutral-900);
+      margin-right: 0.2em;
+      margin-left: 0;
+    }
+  }
+
+  &__message {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--color-neutral-400);
+    border-radius: 0.2rem;
+    color: var(--color-neutral-800);
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: var(--color-neutral-200);
+    }
+  }
+
+  & > div {
+    color: var(--color-neutral-600);
+  }
+}
+
+.notification:not(.notification.read) {
+  p {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0.6em;
+      height: 0.6em;
+      background-color: var(--color-primary-1);
+      border-radius: 50%;
+      margin-top: 0.5em;
+      margin-left: 0.3em;
+    }
+  }
+}
+
+.notification.read {
+  background-color: var(--color-white);
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0;
+  }
+  .wrapper {
+    height: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    button {
+      margin-top: 1rem;
+    }
+  }
+}

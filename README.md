@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live Site URL](https://your-live-site-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/notifications-page-MO8FPcNz8B)
+- [Live Site URL](https://jbidz.github.io/notifications-page)
 
 ## My process
 
